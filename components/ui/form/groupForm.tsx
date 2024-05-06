@@ -59,7 +59,7 @@ export default function GroupForm() {
     }
 
     setTimeout(() => {
-      window.location.href = "/groups";
+      window.location.href = "./";
     }, 2000);
 
     toast({

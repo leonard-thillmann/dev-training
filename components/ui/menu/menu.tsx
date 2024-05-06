@@ -1,6 +1,5 @@
 import {
   Menubar,
-  MenubarCheckboxItem,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
@@ -19,6 +18,11 @@ export default function Menu(props: any) {
   return (
     <>
       <Menubar className="m-4">
+        <MenubarMenu>
+          <MenubarTrigger>
+            <Link href={"./"}>Dashboard</Link>
+          </MenubarTrigger>
+        </MenubarMenu>
         <MenubarMenu>
           <MenubarTrigger>Create</MenubarTrigger>
           <MenubarContent>
@@ -48,13 +52,19 @@ export default function Menu(props: any) {
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger>Placeholder</MenubarTrigger>
+          <MenubarTrigger>View</MenubarTrigger>
           <MenubarContent>
             <MenubarItem>
-              Placeholder <MenubarShortcut>-</MenubarShortcut>
+              <Link href={"./"} className="flex items-center">
+                List
+              </Link>
+              <MenubarShortcut>-</MenubarShortcut>
             </MenubarItem>
             <MenubarItem>
-              Placeholder <MenubarShortcut>-</MenubarShortcut>
+              <Link href={"./groupsGrid"} className="flex items-center">
+                Grid
+              </Link>{" "}
+              <MenubarShortcut>-</MenubarShortcut>
             </MenubarItem>
             <MenubarSeparator />
             <MenubarSub>
@@ -73,24 +83,7 @@ export default function Menu(props: any) {
             <MenubarItem>Placeholder</MenubarItem>
           </MenubarContent>
         </MenubarMenu>
-        <MenubarMenu>
-          <MenubarTrigger>Placeholder</MenubarTrigger>
-          <MenubarContent>
-            <MenubarCheckboxItem>Placeholder</MenubarCheckboxItem>
-            <MenubarCheckboxItem checked>Placeholder</MenubarCheckboxItem>
-            <MenubarSeparator />
-            <MenubarItem inset>
-              Placeholder <MenubarShortcut>-</MenubarShortcut>
-            </MenubarItem>
-            <MenubarItem disabled inset>
-              Placeholder <MenubarShortcut>-</MenubarShortcut>
-            </MenubarItem>
-            <MenubarSeparator />
-            <MenubarItem inset>Placeholder</MenubarItem>
-            <MenubarSeparator />
-            <MenubarItem inset>Placeholder</MenubarItem>
-          </MenubarContent>
-        </MenubarMenu>
+
         <MenubarMenu>
           <MenubarTrigger>Placeholder</MenubarTrigger>
           <MenubarContent>

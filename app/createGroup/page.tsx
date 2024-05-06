@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <div className="m-4">
       <GroupForm></GroupForm>
-      <Button variant={"outline"} className="m-4">
+      <Button variant={"outline"}>
         <Link href={"/groups"}>Cancel</Link>
       </Button>
     </div>

@@ -8,7 +8,6 @@ import {
   CardTitle,
 } from "@/components/ui/card/card";
 import GroupCard from "@/components/ui/card/groupCard";
-import Menu from "@/components/ui/menu/menu";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -26,7 +25,7 @@ const Page = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchGroups = async () => {
       try {
         const response = await fetch("http://localhost:8080/groups");
         if (!response.ok) {
@@ -41,12 +40,11 @@ const Page = () => {
       }
     };
 
-    fetchUsers();
+    fetchGroups();
   }, []);
 
   return (
     <>
-      <Menu />
       {isLoading ? (
         <p className="m-4">Loading...</p>
       ) : error ? (
@@ -67,7 +65,7 @@ const Page = () => {
               {groups.map((group: Group) => (
                 <Link
                   key={group.id}
-                  href={`/groups/${group.id}`}
+                  href={`./${group.id}`}
                   className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4 m-4"
                 >
                   <GroupCard
