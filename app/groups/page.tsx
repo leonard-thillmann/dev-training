@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/card/card";
 import GroupCard from "@/components/ui/card/groupCard";
 import Menu from "@/components/ui/menu/menu";
-import { Plus } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -29,7 +28,7 @@ const Page = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch("http://localhost:3001/groups");
+        const response = await fetch("http://localhost:8080/groups");
         if (!response.ok) {
           throw new Error("Failed to fetch");
         }
@@ -66,21 +65,20 @@ const Page = () => {
           ) : (
             <div className="flex flex-wrap">
               {groups.map((group: Group) => (
-                <GroupCard
+                <Link
                   key={group.id}
-                  id={group.id}
-                  name={group.name}
-                  createdAt={group.createdAt}
-                  updatedAt={group.updatedAt}
-                  currency={group.currency}
-                ></GroupCard>
-              ))}
-              <Button className="m-4" variant="outline">
-                <Link href={"../createGroup"} className="flex items-center">
-                  <Plus className="h-4 w-4 mr-2" />
-                  Add group
+                  href={`/groups/${group.id}`}
+                  className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4 m-4"
+                >
+                  <GroupCard
+                    id={group.id}
+                    name={group.name}
+                    createdAt={group.createdAt}
+                    updatedAt={group.updatedAt}
+                    currency={group.currency}
+                  ></GroupCard>
                 </Link>
-              </Button>
+              ))}
             </div>
           )}
         </>

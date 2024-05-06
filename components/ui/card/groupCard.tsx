@@ -1,9 +1,7 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card/card";
@@ -12,7 +10,7 @@ import { Label } from "@/components/ui/label";
 
 export default function GroupCard(props: any) {
   return (
-    <Card key={props.id} className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4 m-4">
+    <Card key={props.id}>
       <CardHeader>
         <CardTitle>{props.name}</CardTitle>
         <CardDescription>ID: {props.id}</CardDescription>
@@ -35,10 +33,6 @@ export default function GroupCard(props: any) {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="secondary">Edit</Button>
-        <Button variant="destructive">Delete</Button>
-      </CardFooter>
     </Card>
   );
 }

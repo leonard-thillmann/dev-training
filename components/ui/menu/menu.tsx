@@ -13,116 +13,99 @@ import {
   MenubarSubTrigger,
   MenubarTrigger,
 } from "@/components/ui/menu/menubar";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+import Link from "next/link";
 
 export default function Menu(props: any) {
   return (
     <>
       <Menubar className="m-4">
         <MenubarMenu>
-          <MenubarTrigger>File</MenubarTrigger>
+          <MenubarTrigger>Create</MenubarTrigger>
           <MenubarContent>
             <MenubarItem>
-              New Tab <MenubarShortcut>⌘T</MenubarShortcut>
+              <Link href={"../createGroup"} className="flex items-center">
+                Group
+              </Link>
+              <MenubarShortcut>-</MenubarShortcut>
             </MenubarItem>
             <MenubarItem>
-              New Window <MenubarShortcut>⌘N</MenubarShortcut>
+              Placeholder <MenubarShortcut>-</MenubarShortcut>
             </MenubarItem>
-            <MenubarItem disabled>New Incognito Window</MenubarItem>
+            <MenubarItem disabled>Placeholder</MenubarItem>
             <MenubarSeparator />
             <MenubarSub>
-              <MenubarSubTrigger>Share</MenubarSubTrigger>
+              <MenubarSubTrigger>Placeholder</MenubarSubTrigger>
               <MenubarSubContent>
-                <MenubarItem>Email link</MenubarItem>
-                <MenubarItem>Messages</MenubarItem>
-                <MenubarItem>Notes</MenubarItem>
+                <MenubarItem>Placeholder</MenubarItem>
+                <MenubarItem>Placeholder</MenubarItem>
+                <MenubarItem>Placeholder</MenubarItem>
               </MenubarSubContent>
             </MenubarSub>
             <MenubarSeparator />
             <MenubarItem>
-              Print... <MenubarShortcut>⌘P</MenubarShortcut>
+              Placeholder <MenubarShortcut>-</MenubarShortcut>
             </MenubarItem>
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger>Edit</MenubarTrigger>
+          <MenubarTrigger>Placeholder</MenubarTrigger>
           <MenubarContent>
             <MenubarItem>
-              Undo <MenubarShortcut>⌘Z</MenubarShortcut>
+              Placeholder <MenubarShortcut>-</MenubarShortcut>
             </MenubarItem>
             <MenubarItem>
-              Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
+              Placeholder <MenubarShortcut>-</MenubarShortcut>
             </MenubarItem>
             <MenubarSeparator />
             <MenubarSub>
-              <MenubarSubTrigger>Find</MenubarSubTrigger>
+              <MenubarSubTrigger>Placeholder</MenubarSubTrigger>
               <MenubarSubContent>
-                <MenubarItem>Search the web</MenubarItem>
+                <MenubarItem>Placeholder</MenubarItem>
                 <MenubarSeparator />
-                <MenubarItem>Find...</MenubarItem>
-                <MenubarItem>Find Next</MenubarItem>
-                <MenubarItem>Find Previous</MenubarItem>
+                <MenubarItem>Placeholder</MenubarItem>
+                <MenubarItem>Placeholder</MenubarItem>
+                <MenubarItem>Placeholder</MenubarItem>
               </MenubarSubContent>
             </MenubarSub>
             <MenubarSeparator />
-            <MenubarItem>Cut</MenubarItem>
-            <MenubarItem>Copy</MenubarItem>
-            <MenubarItem>Paste</MenubarItem>
+            <MenubarItem>Placeholder</MenubarItem>
+            <MenubarItem>Placeholder</MenubarItem>
+            <MenubarItem>Placeholder</MenubarItem>
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger>View</MenubarTrigger>
+          <MenubarTrigger>Placeholder</MenubarTrigger>
           <MenubarContent>
-            <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-            <MenubarCheckboxItem checked>
-              Always Show Full URLs
-            </MenubarCheckboxItem>
+            <MenubarCheckboxItem>Placeholder</MenubarCheckboxItem>
+            <MenubarCheckboxItem checked>Placeholder</MenubarCheckboxItem>
             <MenubarSeparator />
             <MenubarItem inset>
-              Reload <MenubarShortcut>⌘R</MenubarShortcut>
+              Placeholder <MenubarShortcut>-</MenubarShortcut>
             </MenubarItem>
             <MenubarItem disabled inset>
-              Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
+              Placeholder <MenubarShortcut>-</MenubarShortcut>
             </MenubarItem>
             <MenubarSeparator />
-            <MenubarItem inset>Toggle Fullscreen</MenubarItem>
+            <MenubarItem inset>Placeholder</MenubarItem>
             <MenubarSeparator />
-            <MenubarItem inset>Hide Sidebar</MenubarItem>
+            <MenubarItem inset>Placeholder</MenubarItem>
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>
-          <MenubarTrigger>Profiles</MenubarTrigger>
+          <MenubarTrigger>Placeholder</MenubarTrigger>
           <MenubarContent>
             <MenubarRadioGroup value="benoit">
-              <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-              <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-              <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
+              <MenubarRadioItem value="andy">Placeholder</MenubarRadioItem>
+              <MenubarRadioItem value="benoit">Placeholder</MenubarRadioItem>
+              <MenubarRadioItem value="Luis">Placeholder</MenubarRadioItem>
             </MenubarRadioGroup>
             <MenubarSeparator />
-            <MenubarItem inset>Edit...</MenubarItem>
+            <MenubarItem inset>Placeholder</MenubarItem>
             <MenubarSeparator />
-            <MenubarItem inset>Add Profile...</MenubarItem>
+            <MenubarItem inset>Placeholder</MenubarItem>
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
-
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>Link</NavigationMenuLink>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
     </>
   );
 }
