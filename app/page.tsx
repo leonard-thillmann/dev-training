@@ -1,19 +1,16 @@
 import GroupTable from "@/components/ui/table/groupTable";
 import { env } from "./env.mjs";
 
-const dbUrl = env.NEXT_PUBLIC_DATABASE_URL;
+const dbUrl = env.NEXT_PUBLIC_SPLIT_API_URL;
 
-async function Page() {
-  let groups = {};
-  await fetch(`${dbUrl}/groups`)
-    .then((res) => res.json())
-    .then((res) => (groups = res));
+export default async function Page() {
+  const response = await fetch(`${dbUrl}/groups`, { cache: "no-store" });
+  let groups = await response.json();
+  // console.log(groups);
 
   return (
     <>
-      <GroupTable props={groups} />
+      <GroupTable groups={groups} />
     </>
   );
 }
-
-export default Page;

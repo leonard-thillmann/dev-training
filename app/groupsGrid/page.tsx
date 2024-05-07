@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,7 +7,9 @@ import {
 } from "@/components/ui/card/card";
 import GroupCard from "@/components/ui/card/groupCard";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { env } from "../env.mjs";
+
+const dbUrl = env.NEXT_PUBLIC_SPLIT_API_URL;
 
 type Group = {
   id: string;
@@ -19,70 +19,43 @@ type Group = {
   currency: string;
 };
 
-const Page = () => {
-  const [groups, setGroups] = useState<Group[]>([]);
-  const [isLoading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+type groups = [];
 
-  useEffect(() => {
-    const fetchGroups = async () => {
-      try {
-        const response = await fetch("http://localhost:8080/groups");
-        if (!response.ok) {
-          throw new Error("Failed to fetch");
-        }
-        const data = await response.json();
-        setGroups(data);
-      } catch (error: any) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchGroups();
-  }, []);
+export default async function Page() {
+  const response = await fetch(`${dbUrl}/groups`, { cache: "no-store" });
+  let groups = await response.json();
+  // console.log(groups)
 
   return (
     <>
-      {isLoading ? (
-        <p className="m-4">Loading...</p>
-      ) : error ? (
-        <p>Error: {error}</p>
+      {groups.length === 0 ? (
+        <Card className="w-[350px] m-4">
+          <CardHeader>
+            <CardTitle>Create new group</CardTitle>
+          </CardHeader>
+          <CardFooter>
+            <Button>Create</Button>
+          </CardFooter>
+        </Card>
       ) : (
-        <>
-          {groups.length === 0 ? (
-            <Card className="w-[350px] m-4">
-              <CardHeader>
-                <CardTitle>Create new group</CardTitle>
-              </CardHeader>
-              <CardFooter>
-                <Button>Create</Button>
-              </CardFooter>
-            </Card>
-          ) : (
-            <div className="flex flex-wrap">
-              {groups.map((group: Group) => (
-                <Link
-                  key={group.id}
-                  href={`./${group.id}`}
-                  className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4 m-4"
-                >
-                  <GroupCard
-                    id={group.id}
-                    name={group.name}
-                    createdAt={group.createdAt}
-                    updatedAt={group.updatedAt}
-                    currency={group.currency}
-                  ></GroupCard>
-                </Link>
-              ))}
-            </div>
-          )}
-        </>
+        <div className="flex flex-wrap">
+          {groups.map((group: Group) => (
+            <Link
+              key={group.id}
+              href={`./${group.id}`}
+              className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4 m-4"
+            >
+              <GroupCard
+                id={group.id}
+                name={group.name}
+                createdAt={group.createdAt}
+                updatedAt={group.updatedAt}
+                currency={group.currency}
+              ></GroupCard>
+            </Link>
+          ))}
+        </div>
       )}
     </>
   );
-};
-
-export default Page;
+}

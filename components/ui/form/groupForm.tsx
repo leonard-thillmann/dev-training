@@ -1,5 +1,6 @@
 "use client";
 
+import { postGroup } from "@/components/ui/form/actions";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -17,6 +18,11 @@ import {
 import { Input } from "@/components/ui/input";
 import { Toaster } from "@/components/ui/toaster";
 import { toast } from "@/components/ui/use-toast";
+import { env } from "../../../app/env.mjs";
+
+const dbUrl = env.NEXT_PUBLIC_SPLIT_API_URL;
+
+// Server action in separater Datei welche Daten fetcht
 
 const FormSchema = z.object({
   name: z.string().min(2, {
@@ -37,26 +43,7 @@ export default function GroupForm() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    //function that posts data to the server using HTTP Post
-    try {
-      const response = await fetch("http://localhost:8080/groups", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-      if (response.ok) {
-        // Handle successful response
-        console.log("Data posted successfully");
-      } else {
-        // Handle error response
-        console.log("Failed to post data");
-      }
-    } catch (error) {
-      // Handle network error
-      console.log("Network error occurred");
-    }
+    postGroup(data);
 
     setTimeout(() => {
       window.location.href = "./";

@@ -5,9 +5,9 @@ import Link from "next/link";
 export default function Page() {
   return (
     <div className="m-4">
-      <GroupForm></GroupForm>
+      <GroupForm />
       <Button variant={"outline"}>
-        <Link href={"/groups"}>Cancel</Link>
+        <Link href={"./"}>Cancel</Link>
       </Button>
     </div>
   );

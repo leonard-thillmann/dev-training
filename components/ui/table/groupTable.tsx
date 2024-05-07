@@ -10,9 +10,15 @@ import {
   TableRow,
 } from "@/components/ui/table/table";
 
-type Group = any;
+type Group = {
+  id: string;
+  name: string;
+  currency: string;
+  createdAt: string;
+  updatedAt: string;
+};
 
-function GroupTable({ props }: any) {
+function GroupTable({ groups }: { groups: Group[] }) {
   return (
     <Table className="m-4 w-11/12">
       <TableCaption>A list of all groups.</TableCaption>
@@ -26,7 +32,7 @@ function GroupTable({ props }: any) {
         </TableRow>
       </TableHeader>
       <TableBody>
-        {props.map((group: Group) => (
+        {groups.map((group: Group) => (
           <TableRow
             key={group.id}
             onClick={() => (window.location.href = `./${group.id}`)}
