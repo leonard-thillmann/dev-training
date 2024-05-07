@@ -12,7 +12,11 @@ export default async function GroupDetails({
   const response = await fetch(`${dbUrl}/groups/${params.groupId}`, {
     cache: "no-store",
   });
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
   let group = await response.json();
+  console.log(group);
 
   return (
     <>

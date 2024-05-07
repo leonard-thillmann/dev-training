@@ -8,9 +8,5 @@ export default async function Page() {
   let groups = await response.json();
   // console.log(groups);
 
-  return (
-    <>
-      <GroupTable groups={groups} />
-    </>
-  );
+  return <GroupTable groups={groups} />;
 }
