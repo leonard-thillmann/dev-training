@@ -2,26 +2,18 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { env } from "../env.mjs";
 
-const dbUrl = env.NEXT_PUBLIC_SPLIT_API_URL;
-
-type group = {
-  id: string;
-  name: string;
-  currency: string;
-  createdAt: string;
-  updatedAt: string;
-};
+const dbUrl = env.SPLIT_API_URL;
 
 export default async function GroupDetails({
   params,
 }: {
   params: { groupId: string };
 }) {
-  let group = {} as group;
-  await fetch(`${dbUrl}/groups/${params.groupId}`)
-    .then((res) => res.json())
-    .then((res) => (group = res))
-    .then((res) => console.log(res));
+  const response = await fetch(`${dbUrl}/groups/${params.groupId}`, {
+    cache: "no-store",
+  });
+  let group = await response.json();
+
   return (
     <>
       <div className="m-4">

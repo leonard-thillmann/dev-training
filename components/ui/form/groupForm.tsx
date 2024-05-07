@@ -18,9 +18,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Toaster } from "@/components/ui/toaster";
 import { toast } from "@/components/ui/use-toast";
-import { env } from "../../../app/env.mjs";
-
-const dbUrl = env.NEXT_PUBLIC_SPLIT_API_URL;
 
 // Server action in separater Datei welche Daten fetcht
 

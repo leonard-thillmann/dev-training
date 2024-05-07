@@ -9,7 +9,7 @@ import GroupCard from "@/components/ui/card/groupCard";
 import Link from "next/link";
 import { env } from "../env.mjs";
 
-const dbUrl = env.NEXT_PUBLIC_SPLIT_API_URL;
+const dbUrl = env.SPLIT_API_URL;
 
 type Group = {
   id: string;

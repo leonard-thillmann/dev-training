@@ -2,7 +2,7 @@
 
 import { env } from "../../../app/env.mjs";
 
-const dbUrl = env.NEXT_PUBLIC_SPLIT_API_URL;
+const dbUrl = env.SPLIT_API_URL;
 
 type Group = {
   name: string;
@@ -14,5 +14,6 @@ export async function postGroup(data: Group) {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
+    cache: "no-store",
   });
 }

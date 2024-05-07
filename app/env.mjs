@@ -8,7 +8,7 @@ export const env = createEnv({
    * Will throw if you access these variables on the client.
    */
   server: {
-    NEXT_PUBLIC_SPLIT_API_URL: z.string().min(1),
+    SPLIT_API_URL: z.string().min(1),
   },
   /*
    * Environment variables available on the client (and server).
@@ -24,6 +24,6 @@ export const env = createEnv({
    * 💡 You'll get type errors if not all variables from `server` & `client` are included here.
    */
   runtimeEnv: {
-    NEXT_PUBLIC_SPLIT_API_URL: process.env.NEXT_PUBLIC_SPLIT_API_URL,
+    SPLIT_API_URL: process.env.SPLIT_API_URL,
   },
 });
