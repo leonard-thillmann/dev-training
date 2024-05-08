@@ -11,7 +11,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/components/ui/menu/menubar";
+} from "@/components/menu/menubar";
 import Link from "next/link";
 
 export default function Menu(props: any) {

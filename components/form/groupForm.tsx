@@ -1,11 +1,11 @@
 "use client";
 
-import { postGroup } from "@/components/ui/form/actions";
+import { postGroup } from "@/actions/postGroup";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button/button";
 import {
   Form,
   FormControl,
@@ -14,10 +14,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form/form";
-import { Input } from "@/components/ui/input";
-import { Toaster } from "@/components/ui/toaster";
-import { toast } from "@/components/ui/use-toast";
+} from "@/components/form/form";
+import { Input } from "@/components/input/input";
+import { Toaster } from "@/components/toast/toaster";
+import { toast } from "@/components/toast/use-toast";
 
 // Server action in separater Datei welche Daten fetcht
 

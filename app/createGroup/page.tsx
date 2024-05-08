@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import GroupForm from "@/components/ui/form/groupForm";
+import { Button } from "@/components/button/button";
+import GroupForm from "@/components/form/groupForm";
 import Link from "next/link";
 
 export default function Page() {

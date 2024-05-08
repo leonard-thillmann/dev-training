@@ -1,6 +1,6 @@
 "use server";
 
-import { env } from "../../../app/env.mjs";
+import { env } from "../app/env.mjs";
 
 const dbUrl = env.SPLIT_API_URL;
 

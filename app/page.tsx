@@ -1,4 +1,4 @@
-import GroupTable from "@/components/ui/table/groupTable";
+import GroupTable from "@/components/table/groupTable";
 import { env } from "./env.mjs";
 
 const dbUrl = env.SPLIT_API_URL;

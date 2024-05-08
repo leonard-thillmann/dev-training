@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table/table";
+} from "@/components/table/table";
 
 type Group = {
   id: string;

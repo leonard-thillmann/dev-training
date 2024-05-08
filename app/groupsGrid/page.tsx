@@ -1,11 +1,11 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button/button";
 import {
   Card,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card/card";
-import GroupCard from "@/components/ui/card/groupCard";
+} from "@/components/card/card";
+import GroupCard from "@/components/card/groupCard";
 import Link from "next/link";
 import { env } from "../env.mjs";
 

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button/button";
 import Link from "next/link";
 import { env } from "../env.mjs";
 

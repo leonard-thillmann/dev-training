@@ -4,9 +4,9 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card/card";
+} from "@/components/card/card";
 
-import { Label } from "@/components/ui/label";
+import { Label } from "@/components/label/label";
 
 export default function GroupCard(props: any) {
   return (
