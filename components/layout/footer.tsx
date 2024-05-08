@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Menubar, MenubarMenu, MenubarTrigger } from "./menubar";
+import { Menubar, MenubarMenu, MenubarTrigger } from "../common/menubar";
 
 export default function Footer() {
   return (
-    <Menubar className="fixed inset-x-0 bottom-0 m-4 justify-center">
+    <Menubar className="inset-x-0 bottom-0 m-4 mt-60 justify-center">
       <MenubarMenu>
         <MenubarTrigger>
           <Link href={"./imprint"}>Imprint</Link>

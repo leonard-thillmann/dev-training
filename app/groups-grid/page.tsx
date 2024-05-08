@@ -5,7 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/common/card";
-import GroupCard from "@/components/group/groupCard";
+import GroupCard from "@/components/group/group-card";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { env } from "../env.mjs";

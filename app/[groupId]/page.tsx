@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const dbUrl = env.SPLIT_API_URL;
 
-export default async function GroupDetails({
+export default async function Page({
   params,
 }: {
   params: { groupId: string };

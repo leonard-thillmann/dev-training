@@ -1,5 +1,5 @@
-import Footer from "@/components/common/footer";
-import Menu from "@/components/common/menu";
+import Footer from "@/components/layout/footer";
+import Menu from "@/components/layout/menu";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Bitter } from "next/font/google";

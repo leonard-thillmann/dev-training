@@ -1,6 +1,6 @@
 "use client";
 
-import { postGroup } from "@/actions/postGroup";
+import { postGroup } from "@/actions/post-group";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";

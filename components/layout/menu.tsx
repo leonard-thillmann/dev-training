@@ -20,7 +20,7 @@ export default function Menu(props: any) {
         <MenubarTrigger>Create</MenubarTrigger>
         <MenubarContent>
           <MenubarItem>
-            <Link href={"../createGroup"} className="flex items-center">
+            <Link href={"../create-group"} className="flex items-center">
               Group
             </Link>
             <MenubarShortcut>-</MenubarShortcut>
@@ -37,9 +37,15 @@ export default function Menu(props: any) {
             <MenubarShortcut>-</MenubarShortcut>
           </MenubarItem>
           <MenubarItem>
-            <Link href={"./groupsGrid"} className="flex items-center">
+            <Link href={"./groups-grid"} className="flex items-center">
               Grid
             </Link>{" "}
+            <MenubarShortcut>-</MenubarShortcut>
+          </MenubarItem>
+          <MenubarItem>
+            <Link href={"./groups-data-table"} className="flex items-center">
+              Data Table
+            </Link>
             <MenubarShortcut>-</MenubarShortcut>
           </MenubarItem>
           <MenubarItem>
