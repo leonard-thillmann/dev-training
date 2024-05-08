@@ -1,4 +1,4 @@
-import GroupTable from "@/components/table/groupTable";
+import GroupTable from "@/components/group/groupTable";
 import type { Metadata } from "next";
 import { env } from "./env.mjs";
 

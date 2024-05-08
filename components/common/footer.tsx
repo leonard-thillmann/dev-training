@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Menubar, MenubarMenu, MenubarTrigger } from "../menu/menubar";
+import { Menubar, MenubarMenu, MenubarTrigger } from "./menubar";
 
 export default function Footer() {
   return (

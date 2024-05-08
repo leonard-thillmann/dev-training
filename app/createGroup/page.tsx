@@ -1,5 +1,5 @@
-import { Button } from "@/components/button/button";
-import GroupForm from "@/components/form/groupForm";
+import { Button } from "@/components/common/button";
+import GroupForm from "@/components/group/groupForm";
 import type { Metadata } from "next";
 import Link from "next/link";
 

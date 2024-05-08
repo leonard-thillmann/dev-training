@@ -5,7 +5,7 @@ import {
   MenubarMenu,
   MenubarShortcut,
   MenubarTrigger,
-} from "@/components/menu/menubar";
+} from "@/components/common/menubar";
 import Link from "next/link";
 
 export default function Menu(props: any) {

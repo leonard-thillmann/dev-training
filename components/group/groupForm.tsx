@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Button } from "@/components/button/button";
+import { Button } from "@/components/common/button";
 import {
   Form,
   FormControl,
@@ -14,10 +14,10 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/form/form";
-import { Input } from "@/components/input/input";
-import { Toaster } from "@/components/toast/toaster";
-import { toast } from "@/components/toast/use-toast";
+} from "@/components/common/form";
+import { Input } from "@/components/common/input";
+import { Toaster } from "@/components/common/toaster";
+import { toast } from "@/components/common/use-toast";
 
 // Server action in separater Datei welche Daten fetcht
 

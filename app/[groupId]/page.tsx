@@ -1,5 +1,5 @@
-import { Button } from "@/components/button/button";
-import Heading from "@/components/heading/heading";
+import { Button } from "@/components/common/button";
+import Heading from "@/components/common/heading";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { env } from "../env.mjs";

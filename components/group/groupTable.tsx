@@ -8,8 +8,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/table/table";
-import Text from "@/components/text/text";
+} from "@/components/common/table";
+import Text from "@/components/common/text";
 
 type Group = {
   id: string;

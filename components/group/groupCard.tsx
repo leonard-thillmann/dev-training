@@ -4,9 +4,9 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/card/card";
+} from "@/components/common/card";
 
-import { Label } from "@/components/label/label";
+import { Label } from "@/components/common/label";
 
 export default function GroupCard(props: any) {
   return (

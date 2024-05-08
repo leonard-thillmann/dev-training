@@ -1,4 +1,4 @@
-import Text from "@/components/text/text";
+import Text from "@/components/common/text";
 import Link from "next/link";
 
 export default function NotFound() {

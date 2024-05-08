@@ -1,11 +1,11 @@
-import { Button } from "@/components/button/button";
+import { Button } from "@/components/common/button";
 import {
   Card,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/card/card";
-import GroupCard from "@/components/card/groupCard";
+} from "@/components/common/card";
+import GroupCard from "@/components/group/groupCard";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { env } from "../env.mjs";
