@@ -6,8 +6,14 @@ import {
   CardTitle,
 } from "@/components/card/card";
 import GroupCard from "@/components/card/groupCard";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { env } from "../env.mjs";
+
+export const metadata: Metadata = {
+  title: "Home - Grid",
+  description: "Displaying all groups in a grid.",
+};
 
 const dbUrl = env.SPLIT_API_URL;
 

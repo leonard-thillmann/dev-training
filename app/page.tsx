@@ -1,5 +1,11 @@
 import GroupTable from "@/components/table/groupTable";
+import type { Metadata } from "next";
 import { env } from "./env.mjs";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Displaying all groups in a list.",
+};
 
 const dbUrl = env.SPLIT_API_URL;
 

@@ -1,7 +1,13 @@
 import { Button } from "@/components/button/button";
 import Heading from "@/components/heading/heading";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { env } from "../env.mjs";
+
+export const metadata: Metadata = {
+  title: "Group",
+  description: "Detailed group view.",
+};
 
 const dbUrl = env.SPLIT_API_URL;
 
