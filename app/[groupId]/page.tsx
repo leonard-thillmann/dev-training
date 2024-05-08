@@ -26,7 +26,7 @@ export default async function GroupDetails({
 
   return (
     <>
-      <div className="m-4">
+      <>
         <Heading>{group.name}</Heading>
         <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
           <li>Created at: {group.createdAt}</li>
@@ -37,7 +37,7 @@ export default async function GroupDetails({
         <Button variant={"outline"}>
           <Link href={"../"}>Back</Link>
         </Button>
-      </div>
+      </>
     </>
   );
 }

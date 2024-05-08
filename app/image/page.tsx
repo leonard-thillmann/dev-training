@@ -1,4 +1,4 @@
-import printImg from "@/public/images/print.jpg";
+import printImg from "@/public/images/print.png";
 import type { Metadata } from "next";
 import Image from "next/image";
 
@@ -8,9 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
-    <div className="m-4">
-      <Image src={printImg} alt="3D print" />
-    </div>
-  );
+  return <Image src={printImg} alt="3D print" />;
 }

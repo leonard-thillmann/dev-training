@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="m-4">
+    <>
       <GroupForm />
       <Button variant={"outline"}>
         <Link href={"./"}>Cancel</Link>
       </Button>
-    </div>
+    </>
   );
 }

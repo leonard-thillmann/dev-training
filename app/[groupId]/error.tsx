@@ -15,11 +15,11 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="m-4">
+    <>
       <h2>Something went wrong!</h2>
       <a href="../" style={{ textDecoration: "underline", color: "blue" }}>
         Back to the Dashboard
       </a>
-    </div>
+    </>
   );
 }

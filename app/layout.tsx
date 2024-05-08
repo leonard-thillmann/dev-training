@@ -1,3 +1,4 @@
+import Footer from "@/components/footer/footer";
 import Menu from "@/components/menu/menu";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
@@ -17,9 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={bitter.className}>
+      <body className={`${bitter.className} m-4`}>
         <Menu />
         {children}
+        <Footer />
       </body>
     </html>
   );

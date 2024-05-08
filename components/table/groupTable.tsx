@@ -21,7 +21,7 @@ type Group = {
 
 function GroupTable({ groups }: { groups: Group[] }) {
   return (
-    <Table className="m-4 w-11/12">
+    <Table className="w-11/12">
       <TableCaption>
         <Text>A list of all groups.</Text>
       </TableCaption>
