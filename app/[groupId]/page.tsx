@@ -27,7 +27,7 @@ export default async function GroupDetails({
   return (
     <>
       <>
-        <Heading>{group.name}</Heading>
+        <Heading text={group.name} />
         <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
           <li>Created at: {group.createdAt}</li>
           <li>Updated at: {group.updatedAt}</li>
