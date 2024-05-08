@@ -16,7 +16,6 @@ export default async function GroupDetails({
     throw new Error(response.statusText);
   }
   let group = await response.json();
-  console.log(group);
 
   return (
     <>

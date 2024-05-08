@@ -24,7 +24,6 @@ type groups = [];
 export default async function Page() {
   const response = await fetch(`${dbUrl}/groups`, { cache: "no-store" });
   let groups = await response.json();
-  // console.log(groups)
 
   return (
     <>
