@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/table/table";
+import Text from "@/components/text/text";
 
 type Group = {
   id: string;
@@ -21,7 +22,9 @@ type Group = {
 function GroupTable({ groups }: { groups: Group[] }) {
   return (
     <Table className="m-4 w-11/12">
-      <TableCaption>A list of all groups.</TableCaption>
+      <TableCaption>
+        <Text>A list of all groups.</Text>
+      </TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>Name</TableHead>

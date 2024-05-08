@@ -1,4 +1,5 @@
 import { Button } from "@/components/button/button";
+import Heading from "@/components/heading/heading";
 import Link from "next/link";
 import { env } from "../env.mjs";
 
@@ -20,9 +21,7 @@ export default async function GroupDetails({
   return (
     <>
       <div className="m-4">
-        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-          {group.name}
-        </h1>
+        <Heading>{group.name}</Heading>
         <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
           <li>Created at: {group.createdAt}</li>
           <li>Updated at: {group.updatedAt}</li>
