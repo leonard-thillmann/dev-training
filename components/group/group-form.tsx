@@ -40,20 +40,24 @@ export default function GroupForm() {
   });
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
-    postGroup(data);
-
-    setTimeout(() => {
-      window.location.href = "./";
-    }, 2000);
-
-    toast({
-      title: "You created the following group:",
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+    try {
+      await postGroup(data);
+      toast({
+        title: "Success",
+        description: "Group successfully created!",
+        status: "success",
+      });
+      setTimeout(() => {
+        window.location.href = "./";
+      }, 2000);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to create group.",
+        status: "error",
+      });
+      console.error("Failed to post group:", error);
+    }
   }
 
   return (
@@ -66,7 +70,7 @@ export default function GroupForm() {
             <FormItem>
               <FormLabel>Group name</FormLabel>
               <FormControl>
-                <Input placeholder="name" {...field} />
+                <Input placeholder="name" autoComplete="name" {...field} />
               </FormControl>
               <FormDescription>
                 This will be the name of the group.
@@ -82,7 +86,11 @@ export default function GroupForm() {
             <FormItem>
               <FormLabel>Group currency</FormLabel>
               <FormControl>
-                <Input placeholder="currency" {...field} />
+                <Input
+                  placeholder="currency"
+                  autoComplete="currency"
+                  {...field}
+                />
               </FormControl>
               <FormDescription>
                 This will be the currency of the group.
