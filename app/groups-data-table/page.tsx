@@ -3,7 +3,9 @@
 import {
   ColumnDef,
   ColumnFiltersState,
+  RowData,
   SortingState,
+  TableOptions,
   VisibilityState,
   flexRender,
   getCoreRowModel,
@@ -14,6 +16,7 @@ import {
 } from "@tanstack/react-table";
 import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
 import * as React from "react";
+import { useEffect } from "react";
 
 import { Button } from "@/components/common/button";
 import { Checkbox } from "@/components/common/checkbox";
@@ -23,7 +26,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/common/dropdown-menu";
 import { Input } from "@/components/common/input";
@@ -36,43 +38,7 @@ import {
   TableRow,
 } from "@/components/common/table";
 
-const data: Group[] = [
-  {
-    id: "id",
-    name: "name",
-    createdAt: "createdAt",
-    updatedAt: "updatedAt",
-    currency: "currency",
-  },
-  {
-    id: "id",
-    name: "name",
-    createdAt: "createdAt",
-    updatedAt: "updatedAt",
-    currency: "currency",
-  },
-  {
-    id: "id",
-    name: "name",
-    createdAt: "createdAt",
-    updatedAt: "updatedAt",
-    currency: "currency",
-  },
-  {
-    id: "id",
-    name: "name",
-    createdAt: "createdAt",
-    updatedAt: "updatedAt",
-    currency: "currency",
-  },
-  {
-    id: "id",
-    name: "name",
-    createdAt: "createdAt",
-    updatedAt: "updatedAt",
-    currency: "currency",
-  },
-];
+import getGroups from "@/actions/get-groups";
 
 export type Group = {
   id: string;
@@ -82,11 +48,15 @@ export type Group = {
   currency: string;
 };
 
+let data: Group[] = [];
+
 export const groups: ColumnDef<Group>[] = [
   {
     id: "select",
     header: ({ table }) => (
       <Checkbox
+        name="select-all"
+        id="select-all"
         checked={
           table.getIsAllPageRowsSelected() ||
           (table.getIsSomePageRowsSelected() && "indeterminate")
@@ -97,9 +67,11 @@ export const groups: ColumnDef<Group>[] = [
     ),
     cell: ({ row }) => (
       <Checkbox
+        name={`select-row-${row.id}`}
+        id={`select-row-${row.id}`}
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
+        aria-label={`Select row ${row.id}`}
       />
     ),
     enableSorting: false,
@@ -166,11 +138,8 @@ export const groups: ColumnDef<Group>[] = [
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(group.id)}
             >
-              Copy payment ID
+              Copy ID
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );
@@ -178,7 +147,19 @@ export const groups: ColumnDef<Group>[] = [
   },
 ];
 
-export default function DataTableDemo() {
+// Defining the extended interface above the table component
+interface ExtendedTableOptions<TData extends RowData>
+  extends TableOptions<TData> {
+  columns: ColumnDef<TData>[];
+}
+
+const columns: ColumnDef<Group>[] = groups;
+
+async function fetchData() {
+  data = await getGroups();
+}
+
+export default function DataTable() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
@@ -186,10 +167,17 @@ export default function DataTableDemo() {
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+  const [isLoading, setIsLoading] = React.useState(true);
 
-  const table = useReactTable({
+  useEffect(() => {
+    fetchData();
+    setIsLoading(false);
+  }, []);
+
+  // Usage of useReactTable with type assertion
+  const table = useReactTable<Group>({
     data,
-    columns: groups,
+    columns: groups as ColumnDef<Group>[], // Ensure 'groups' is treated as an array of ColumnDef<Group>
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
@@ -204,115 +192,130 @@ export default function DataTableDemo() {
       columnVisibility,
       rowSelection,
     },
-  });
+  } as ExtendedTableOptions<Group>); // Explicitly assert the entire options object as ExtendedTableOptions<Group>
 
   return (
-    <div className="w-full">
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter group names..."
-          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("name")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              Columns <ChevronDown className="ml-2 h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter((group) => group.getCanHide())
-              .map((group) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={group.id}
-                    className="capitalize"
-                    checked={group.getIsVisible()}
-                    onCheckedChange={(value) => group.toggleVisibility(!!value)}
-                  >
-                    {group.id}
-                  </DropdownMenuCheckboxItem>
-                );
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-      <div className="rounded-md border">
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => {
-                  return (
-                    <TableHead key={header.id}>
-                      {header.isPlaceholder
-                        ? null
-                        : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
+    <>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <div className="w-full">
+          <div className="flex items-center py-4">
+            <Input
+              id="filter-group-name"
+              name="filter-group-name"
+              placeholder="Filter group names..."
+              value={
+                (table.getColumn("name")?.getFilterValue() as string) ?? ""
+              }
+              onChange={(event) =>
+                table.getColumn("name")?.setFilterValue(event.target.value)
+              }
+              className="max-w-sm"
+            />
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" className="ml-auto">
+                  Columns <ChevronDown className="ml-2 h-4 w-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                {table
+                  .getAllColumns()
+                  .filter((group) => group.getCanHide())
+                  .map((group) => {
+                    return (
+                      <DropdownMenuCheckboxItem
+                        key={group.id}
+                        className="capitalize"
+                        checked={group.getIsVisible()}
+                        onCheckedChange={(value) =>
+                          group.toggleVisibility(!!value)
+                        }
+                      >
+                        {group.id}
+                      </DropdownMenuCheckboxItem>
+                    );
+                  })}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+          <div className="rounded-md border">
+            <Table>
+              <TableHeader>
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <TableRow key={headerGroup.id}>
+                    {headerGroup.headers.map((header) => {
+                      return (
+                        <TableHead key={header.id}>
+                          {header.isPlaceholder
+                            ? null
+                            : flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
+                        </TableHead>
+                      );
+                    })}
+                  </TableRow>
+                ))}
+              </TableHeader>
+              <TableBody>
+                {table.getRowModel().rows?.length ? (
+                  table.getRowModel().rows.map((row) => (
+                    <TableRow
+                      key={row.id}
+                      data-state={row.getIsSelected() && "selected"}
+                    >
+                      {row.getVisibleCells().map((cell) => (
+                        <TableCell key={cell.id}>
+                          {flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
                           )}
-                    </TableHead>
-                  );
-                })}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))
+                ) : (
+                  <TableRow>
+                    <TableCell
+                      colSpan={groups.length}
+                      className="h-24 text-center"
+                    >
+                      No results.
                     </TableCell>
-                  ))}
-                </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell colSpan={groups.length} className="h-24 text-center">
-                  No results.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+          </div>
+          <div className="flex items-center justify-end space-x-2 py-4">
+            <div className="flex-1 text-sm text-muted-foreground">
+              {table.getFilteredSelectedRowModel().rows.length} of{" "}
+              {table.getFilteredRowModel().rows.length} row(s) selected.
+            </div>
+            <div className="space-x-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => table.previousPage()}
+                disabled={!table.getCanPreviousPage()}
+              >
+                Previous
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => table.nextPage()}
+                disabled={!table.getCanNextPage()}
+              >
+                Next
+              </Button>
+            </div>
+          </div>
         </div>
-        <div className="space-x-2">
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.previousPage()}
-            disabled={!table.getCanPreviousPage()}
-          >
-            Previous
-          </Button>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => table.nextPage()}
-            disabled={!table.getCanNextPage()}
-          >
-            Next
-          </Button>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }
