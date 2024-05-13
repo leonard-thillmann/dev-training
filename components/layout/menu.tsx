@@ -54,6 +54,12 @@ export default function Menu(props: any) {
             </Link>
             <MenubarShortcut>-</MenubarShortcut>
           </MenubarItem>
+          <MenubarItem>
+            <Link href={"./get-handler"} className="flex items-center">
+              GET Handler
+            </Link>
+            <MenubarShortcut>-</MenubarShortcut>
+          </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
     </Menubar>

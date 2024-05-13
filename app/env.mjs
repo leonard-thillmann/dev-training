@@ -9,6 +9,7 @@ export const env = createEnv({
    */
   server: {
     SPLIT_API_URL: z.string().min(1),
+    CURRENCY_API: z.string().min(1),
   },
   /*
    * Environment variables available on the client (and server).
@@ -25,5 +26,6 @@ export const env = createEnv({
    */
   runtimeEnv: {
     SPLIT_API_URL: process.env.SPLIT_API_URL,
+    CURRENCY_API: process.env.CURRENCY_API,
   },
 });
