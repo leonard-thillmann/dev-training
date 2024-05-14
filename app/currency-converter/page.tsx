@@ -16,14 +16,20 @@ import { z } from "zod";
 
 const formSchema = z.object({
   sourceAmount: z.string().min(1, {
-    message: "Username must be at least 1 characters.",
+    message: "Must be at least 1 characters.",
   }),
-  sourceCurr: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-  targetCurr: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
+  sourceCurr: z
+    .string()
+    .min(3, {
+      message: "Must be 3 characters.",
+    })
+    .max(3),
+  targetCurr: z
+    .string()
+    .min(3, {
+      message: "Must be 3 characters.",
+    })
+    .max(3),
 });
 
 export default function Page() {
@@ -47,17 +53,20 @@ export default function Page() {
       .then((data) => {
         const sourceCurrencyMultiplier = data.product.data[values.sourceCurr];
         const sourceCurrency = values.sourceCurr;
-        const sourceAmount = values.sourceAmount;
+        const sourceAmount = parseInt(values.sourceAmount);
         const targetCurrencyMultiplier = data.product.data[values.targetCurr];
         const targetCurrency = values.targetCurr;
 
         // Calculate targetAmount by calculating the conversion rate
-        const targetAmount =
+        const targetAmountMultiplier =
           targetCurrencyMultiplier / sourceCurrencyMultiplier;
+
+        const targetAmount = sourceAmount * targetAmountMultiplier;
 
         const calcResult = document.getElementById("calcResult");
         if (calcResult) {
           calcResult.innerHTML =
+            "= " +
             sourceAmount +
             " " +
             sourceCurrency +
@@ -120,7 +129,7 @@ export default function Page() {
             </>
           )}
         />
-        <p id="calcResult">Result will be printed here...</p>
+        <p id="calcResult">= ...</p>
         <Button type="submit">Calculate</Button>
       </form>
     </Form>

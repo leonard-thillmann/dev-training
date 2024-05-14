@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import {
   Menubar,
   MenubarContent,
@@ -7,10 +8,14 @@ import {
   MenubarTrigger,
 } from "@/components/common/menubar";
 import Link from "next/link";
+import { SignOut } from "../auth/sign-out";
+import UserAvatar from "../auth/userAvatar";
 
-export default function Menu(props: any) {
+export default async function Menu(props: any) {
+  const session = await auth();
+
   return (
-    <Menubar className="mb-4">
+    <Menubar className="mb-4 w-full">
       <MenubarMenu>
         <MenubarTrigger>
           <Link href={"./"}>Dashboard</Link>
@@ -55,12 +60,24 @@ export default function Menu(props: any) {
             <MenubarShortcut>-</MenubarShortcut>
           </MenubarItem>
           <MenubarItem>
-            <Link href={"./get-handler"} className="flex items-center">
-              GET Handler
+            <Link href={"./currency-converter"} className="flex items-center">
+              Currency converter
             </Link>
             <MenubarShortcut>-</MenubarShortcut>
           </MenubarItem>
         </MenubarContent>
+      </MenubarMenu>
+      {session?.user ? (
+        <>
+          <MenubarMenu>
+            <SignOut />
+          </MenubarMenu>
+        </>
+      ) : (
+        <></>
+      )}
+      <MenubarMenu>
+        <UserAvatar />
       </MenubarMenu>
     </Menubar>
   );
