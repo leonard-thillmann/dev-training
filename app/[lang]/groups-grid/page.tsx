@@ -1,3 +1,4 @@
+import { env } from "@/app/env.mjs";
 import { Button } from "@/components/common/button";
 import {
   Card,
@@ -8,7 +9,6 @@ import {
 import GroupCard from "@/components/group/group-card";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { env } from "../env.mjs";
 
 export const metadata: Metadata = {
   title: "Home - Grid",
@@ -47,7 +47,7 @@ export default async function Page() {
           {groups.map((group: Group) => (
             <Link
               key={group.id}
-              href={`./${group.id}`}
+              href={`./groups/${group.id}`}
               className="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4 m-4"
             >
               <GroupCard

@@ -1,5 +1,5 @@
 import GroupTable from "@/components/group/group-table";
-import { env } from "./env.mjs";
+import { env } from "../env.mjs";
 
 const dbUrl = env.SPLIT_API_URL;
 

@@ -1,8 +1,8 @@
+import { env } from "@/app/env.mjs";
 import { Button } from "@/components/common/button";
 import Heading from "@/components/common/heading";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { env } from "../env.mjs";
 
 export const metadata: Metadata = {
   title: "Group",

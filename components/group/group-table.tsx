@@ -38,7 +38,7 @@ function GroupTable({ groups }: { groups: Group[] }) {
         {groups.map((group: Group) => (
           <TableRow
             key={group.id}
-            onClick={() => (window.location.href = `./${group.id}`)}
+            onClick={() => (window.location.href = `./groups/${group.id}`)}
           >
             <TableCell>{group.name}</TableCell>
             <TableCell>{group.id}</TableCell>

@@ -18,7 +18,7 @@ export default async function Menu(props: any) {
     <Menubar className="mb-4 w-full">
       <MenubarMenu>
         <MenubarTrigger>
-          <Link href={"./"}>Dashboard</Link>
+          <Link href={"/"}>Dashboard</Link>
         </MenubarTrigger>
       </MenubarMenu>
       <MenubarMenu>
