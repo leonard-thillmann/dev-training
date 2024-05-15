@@ -2,12 +2,11 @@ import { auth } from "@/auth";
 import Negotiator from "negotiator";
 import { NextResponse, type NextRequest } from "next/server";
 
-let headers = { "accept-language": "en-US,en;q=0.5" };
+let headers = { "accept-language": "en,de;q=0.8" };
 let languages = new Negotiator({ headers }).languages();
 let locales = ["en-US", "nl-NL", "nl"];
 let defaultLocale = "en-US";
 
-// This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
   // ########## AUTHENTICATION MIDDLEWARE ##########
   const session = await auth();
@@ -19,5 +18,5 @@ export async function middleware(request: NextRequest) {
 
 // See "Matching Paths" below to learn more
 export const config = {
-  matcher: "/",
+  matcher: ["/", "/groups-grid", "/groups-data-table"],
 };

@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <Image src={printImg} alt="3D print" />;
+  return <Image src={printImg} height={400} alt="3D print" />;
 }

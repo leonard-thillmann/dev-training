@@ -17,7 +17,7 @@ export default function Error({
   return (
     <>
       <h2>Something went wrong!</h2>
-      <a href="../" style={{ textDecoration: "underline", color: "blue" }}>
+      <a href="/" style={{ textDecoration: "underline", color: "blue" }}>
         Back to the Dashboard
       </a>
     </>

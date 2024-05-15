@@ -11,6 +11,11 @@ const nextConfig = {
       },
     ],
   },
+  // Wegen Warning: Prop `className` did not match.
+  compiler: {
+    // Enables the styled-components SWC transform
+    styledComponents: true
+  }
 }
  
 const withMDX = createMDX({
