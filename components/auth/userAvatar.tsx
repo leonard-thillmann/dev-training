@@ -6,8 +6,6 @@ export default async function UserAvatar() {
 
   if (!session?.user) return <p className="text-xs">Not signed in</p>;
 
-  console.log(session.user.image);
-
   return (
     <Image
       src={`${session.user.image}`}

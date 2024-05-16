@@ -47,7 +47,6 @@ export default function Page() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    // console.log(values);
     fetch("/api")
       .then((response) => response.json())
       .then((data) => {

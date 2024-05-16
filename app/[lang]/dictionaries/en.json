@@ -1,0 +1,10 @@
+{
+  "groupsList": {
+    "name": "Name",
+    "id": "ID",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "currency": "Currency",
+    "description": "A list of all groups."
+  }
+}

@@ -19,19 +19,35 @@ type Group = {
   updatedAt: string;
 };
 
-function GroupTable({ groups }: { groups: Group[] }) {
+type dict = {
+  name: string;
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  currency: string;
+  description: string;
+};
+
+type GroupTableProps = {
+  groups: Group[];
+  dict: dict; // Include the lang prop
+};
+
+function GroupTable({ groups, dict }: GroupTableProps) {
+  // { groups }: { groups: Group[] },
+  // { lang }: { lang: string }
   return (
     <Table className="w-11/12">
       <TableCaption>
-        <Text>A list of all groups.</Text>
+        <Text>{dict.description}</Text>
       </TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead>Name</TableHead>
-          <TableHead>ID</TableHead>
-          <TableHead>Created at</TableHead>
-          <TableHead>Updated at</TableHead>
-          <TableHead className="text-right">Currency</TableHead>
+          <TableHead>{dict.name}</TableHead>
+          <TableHead>{dict.id}</TableHead>
+          <TableHead>{dict.createdAt}</TableHead>
+          <TableHead>{dict.updatedAt}</TableHead>
+          <TableHead className="text-right">{dict.currency}</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>

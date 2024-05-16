@@ -3,10 +3,10 @@ import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import { NextResponse, type NextRequest } from "next/server";
 
-let headers = { "accept-language": "en-US,de;q=0.5" };
+let headers = { "accept-language": "en,de;q=0.5" };
 let languages = new Negotiator({ headers }).languages();
-let locales = ["en-US", "de"];
-let defaultLocale = "en-US";
+let locales = ["en", "de"];
+let defaultLocale = "en";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -24,7 +24,6 @@ export async function middleware(request: NextRequest) {
   if (!isAuthPath) {
     const session = await auth();
     if (!session?.user) {
-      console.log("No user found");
       return NextResponse.redirect(new URL(`/${locale}/sign-in`, request.url));
     }
   }

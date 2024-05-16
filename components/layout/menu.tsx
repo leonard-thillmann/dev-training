@@ -10,8 +10,9 @@ import {
 import Link from "next/link";
 import { SignOut } from "../auth/sign-out";
 import UserAvatar from "../auth/userAvatar";
+import LangSwitcher from "./lang-switcher";
 
-export default async function Menu(props: any) {
+export default async function Menu() {
   const session = await auth();
 
   return (
@@ -79,6 +80,7 @@ export default async function Menu(props: any) {
       <MenubarMenu>
         <UserAvatar />
       </MenubarMenu>
+      <LangSwitcher />
     </Menubar>
   );
 }
