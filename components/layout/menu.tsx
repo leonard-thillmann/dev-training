@@ -34,7 +34,7 @@ export default async function Menu() {
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>View</MenubarTrigger>
+        <MenubarTrigger data-testid="view">View</MenubarTrigger>
         <MenubarContent>
           <MenubarItem>
             <Link href={"./"} className="flex items-center">
@@ -43,7 +43,11 @@ export default async function Menu() {
             <MenubarShortcut>-</MenubarShortcut>
           </MenubarItem>
           <MenubarItem>
-            <Link href={"./groups-grid"} className="flex items-center">
+            <Link
+              data-testid="grid"
+              href={"./groups-grid"}
+              className="flex items-center"
+            >
               Grid
             </Link>{" "}
             <MenubarShortcut>-</MenubarShortcut>
@@ -57,7 +61,7 @@ export default async function Menu() {
         </MenubarContent>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>Other</MenubarTrigger>
+        <MenubarTrigger data-testid="other">Other</MenubarTrigger>
         <MenubarContent>
           <MenubarItem>
             <Link href={"./image"} className="flex items-center">
@@ -66,7 +70,11 @@ export default async function Menu() {
             <MenubarShortcut>-</MenubarShortcut>
           </MenubarItem>
           <MenubarItem>
-            <Link href={"./currency-converter"} className="flex items-center">
+            <Link
+              data-testid="currency-converter"
+              href={"./currency-converter"}
+              className="flex items-center"
+            >
               Currency converter
             </Link>
             <MenubarShortcut>-</MenubarShortcut>

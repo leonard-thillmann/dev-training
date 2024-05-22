@@ -117,8 +117,12 @@ export default function ConverterForm({ session }: any) {
             </>
           )}
         />
-        <p id="resultContainer">= ...</p>
-        <Button type="submit">Calculate</Button>
+        <p data-testid="result-container" id="resultContainer">
+          = ...
+        </p>
+        <Button data-testid="calculate" type="submit">
+          Calculate
+        </Button>
       </form>
     </Form>
   );
