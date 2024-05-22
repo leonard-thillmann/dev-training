@@ -23,10 +23,14 @@ export default async function Menu() {
         </MenubarTrigger>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger>Create</MenubarTrigger>
+        <MenubarTrigger data-testid="create">Create</MenubarTrigger>
         <MenubarContent>
           <MenubarItem>
-            <Link href={"../create-group"} className="flex items-center">
+            <Link
+              data-testid="group"
+              href={"../create-group"}
+              className="flex items-center"
+            >
               Group
             </Link>
             <MenubarShortcut>-</MenubarShortcut>
