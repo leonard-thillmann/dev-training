@@ -71,6 +71,12 @@ export default async function Menu() {
             </Link>
             <MenubarShortcut>-</MenubarShortcut>
           </MenubarItem>
+          <MenubarItem>
+            <Link href={"./tanstack"} className="flex items-center">
+              Tanstack Demo
+            </Link>
+            <MenubarShortcut>-</MenubarShortcut>
+          </MenubarItem>
         </MenubarContent>
       </MenubarMenu>
       {session?.user ? (
