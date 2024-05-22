@@ -14,6 +14,7 @@ export async function middleware(request: NextRequest) {
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
+  
   // ########### AUTHENTICATION MIDDLEWARE ###########
   // Check if the path is related to authentication and should be excluded
   const isAuthPath =
@@ -41,6 +42,6 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     // Exclude paths related to authentication and Next.js internals
-    "/((?!_next|sign-in|api/auth/callback).*)",
+    "/((?!_next|sign-in|api).*)",
   ],
 };

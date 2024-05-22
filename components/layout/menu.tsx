@@ -54,6 +54,11 @@ export default async function Menu() {
             </Link>
             <MenubarShortcut>-</MenubarShortcut>
           </MenubarItem>
+        </MenubarContent>
+      </MenubarMenu>
+      <MenubarMenu>
+        <MenubarTrigger>Other</MenubarTrigger>
+        <MenubarContent>
           <MenubarItem>
             <Link href={"./image"} className="flex items-center">
               Image
