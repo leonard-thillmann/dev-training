@@ -17,7 +17,7 @@ export default function Page() {
 }
 
 function WeatherBerlin() {
-  const { isPending, error, data, isFetching } = useQuery({
+  const { isPending, error, data } = useQuery({
     queryKey: ["weatherData"],
     queryFn: () =>
       fetch(
