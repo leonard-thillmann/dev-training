@@ -20,10 +20,10 @@ export default function LangSwitcher() {
 
   const checkHandler = () => {
     if (pathname.startsWith("/en")) {
-      const newPath = pathname.replace("/en", "/de");
+      const newPath = pathname.replace("/en", "/de?view=list");
       window.location.href = newPath;
     } else if (pathname.startsWith("/de")) {
-      const newPath = pathname.replace("/de", "/en");
+      const newPath = pathname.replace("/de", "/en?view=list");
       window.location.href = newPath;
     }
   };

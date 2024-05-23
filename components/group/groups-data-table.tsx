@@ -159,7 +159,7 @@ async function fetchData() {
   data = await getGroups();
 }
 
-export default function DataTable() {
+export default function GroupsDataTable() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []

@@ -1,4 +1,4 @@
-import GroupTable from "@/components/group/group-table";
+import Groups from "@/components/group/groups-table";
 import { env } from "../env.mjs";
 import { getDictionary } from "./dictionaries";
 
@@ -15,7 +15,7 @@ export default async function Page({
 
   return (
     <>
-      <GroupTable groups={groups} dict={dict.groupsList} />
+      <Groups groups={groups} dict={dict.groupsList} />
     </>
   );
 }

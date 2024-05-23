@@ -1,4 +1,6 @@
-import { env } from "@/app/env.mjs";
+"use client";
+
+import getGroups from "@/actions/get-groups";
 import { Button } from "@/components/common/button";
 import {
   Card,
@@ -9,13 +11,12 @@ import {
 import GroupCard from "@/components/group/groups-card";
 import type { Metadata } from "next";
 import Link from "next/link";
+import React, { useEffect } from "react";
 
 export const metadata: Metadata = {
   title: "Home - Grid",
   description: "Displaying all groups in a grid.",
 };
-
-const dbUrl = env.SPLIT_API_URL;
 
 type Group = {
   id: string;
@@ -25,11 +26,19 @@ type Group = {
   currency: string;
 };
 
-type groups = [];
+let groups: Group[] = [];
 
-export default async function Page() {
-  const response = await fetch(`${dbUrl}/groups`, { cache: "no-store" });
-  let groups = await response.json();
+async function fetchData() {
+  groups = await getGroups();
+}
+
+export default function GroupsGrid() {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  useEffect(() => {
+    fetchData();
+    setIsLoading(false);
+  }, []);
 
   return (
     <>
