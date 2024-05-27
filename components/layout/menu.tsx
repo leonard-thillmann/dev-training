@@ -7,9 +7,9 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "../../components/common/menubar";
+import LangSwitcher from "../auth/lang-switcher";
 import { SignOut } from "../auth/sign-out";
 import UserAvatar from "../auth/userAvatar";
-import LangSwitcher from "./lang-switcher";
 
 export default async function Menu() {
   const session = await auth();

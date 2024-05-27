@@ -20,7 +20,8 @@ export async function middleware(request: NextRequest) {
   // ########### AUTHENTICATION MIDDLEWARE ###########
   // Check if the path is related to authentication and should be excluded from auth protection
   const isAuthPath =
-    pathname.startsWith(`/${locale}/sign-in`) ||
+    pathname.startsWith(`/en/sign-in`) ||
+    pathname.startsWith(`/de/sign-in`) ||
     pathname.startsWith(`/${locale}/api/auth/callback/github`);
 
   // Only run authentication check if it's not an auth-related path

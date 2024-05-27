@@ -13,11 +13,9 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = {
   children: React.ReactNode;
-  lang?: string | string[]; // Define lang as an optional prop
 };
 
-export default function RootLayout({ children, lang }: RootLayoutProps) {
-  // console.log(lang);
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html>
       <body className={`${bitter.className} m-4`}>
