@@ -20,6 +20,10 @@ export default async function Page({ params, searchParams }: PageProps) {
   const groups = await response.json();
   const view = searchParams.view;
 
+  await fetch("https://api.vercel.app/blog", {
+    next: { revalidate: 10 }, // Seconds
+  });
+
   return (
     <>
       <GroupsRadio />
