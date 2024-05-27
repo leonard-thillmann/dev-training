@@ -99,7 +99,9 @@ export default function GroupForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Create group</Button>
+        <Button data-testid="create-group" type="submit">
+          Create group
+        </Button>
         <Toaster />
       </form>
     </Form>

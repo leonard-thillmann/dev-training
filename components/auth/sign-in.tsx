@@ -9,7 +9,7 @@ export function SignIn() {
         await signIn();
       }}
     >
-      <Button id="sign-in-button" type="submit">
+      <Button id="sign-in-button" type="submit" name="sign-in">
         Sign in
       </Button>
     </form>

@@ -1,0 +1,1054 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`should check if the GroupsTable component matches the snapshot 1`] = `
+{
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="w-full"
+      >
+        <div
+          class="flex items-center py-4"
+        >
+          <input
+            class="flex h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-800 dark:bg-slate-950 dark:ring-offset-slate-950 dark:placeholder:text-slate-400 dark:focus-visible:ring-slate-300 max-w-sm"
+            id="filter-group-name"
+            name="filter-group-name"
+            placeholder="Filter group names..."
+            value=""
+          />
+          <button
+            aria-expanded="false"
+            aria-haspopup="menu"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-10 px-4 py-2 ml-auto"
+            data-state="closed"
+            id="radix-:r0:"
+            type="button"
+          >
+            Columns 
+            <svg
+              class="lucide lucide-chevron-down ml-2 h-4 w-4"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m6 9 6 6 6-6"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="rounded-md border"
+        >
+          <div
+            class="relative w-full overflow-auto"
+          >
+            <table
+              class="w-full caption-bottom text-sm"
+            >
+              <thead
+                class="[&_tr]:border-b"
+              >
+                <tr
+                  class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                >
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                  >
+                    <button
+                      aria-checked="false"
+                      aria-label="Select all"
+                      class="peer h-4 w-4 shrink-0 rounded-sm border border-slate-900 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-slate-900 data-[state=checked]:text-slate-50 dark:border-slate-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=checked]:bg-slate-50 dark:data-[state=checked]:text-slate-900"
+                      data-state="unchecked"
+                      id="select-all"
+                      role="checkbox"
+                      type="button"
+                      value="on"
+                    />
+                  </th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                  >
+                    Currency
+                  </th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                  >
+                    CreatedAt
+                  </th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                  >
+                    <button
+                      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-10 px-4 py-2"
+                    >
+                      UpdatedAt
+                      <svg
+                        class="lucide lucide-arrow-up-down ml-2 h-4 w-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="m21 16-4 4-4-4"
+                        />
+                        <path
+                          d="M17 20V4"
+                        />
+                        <path
+                          d="m3 8 4-4 4 4"
+                        />
+                        <path
+                          d="M7 4v16"
+                        />
+                      </svg>
+                    </button>
+                  </th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                  >
+                    ID
+                  </th>
+                  <th
+                    class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                  />
+                </tr>
+              </thead>
+              <tbody
+                class="[&_tr:last-child]:border-0"
+              >
+                <tr
+                  class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                  data-state="false"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <button
+                      aria-checked="false"
+                      aria-label="Select row 0"
+                      class="peer h-4 w-4 shrink-0 rounded-sm border border-slate-900 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-slate-900 data-[state=checked]:text-slate-50 dark:border-slate-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=checked]:bg-slate-50 dark:data-[state=checked]:text-slate-900"
+                      data-state="unchecked"
+                      id="select-row-0"
+                      role="checkbox"
+                      type="button"
+                      value="on"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      Group 1
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      CZK
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      2021-01-01
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="lowercase"
+                    >
+                      2021-01-01
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      1
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="menu"
+                      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-8 w-8 p-0"
+                      data-state="closed"
+                      id="radix-:r2:"
+                      type="button"
+                    >
+                      <span
+                        class="sr-only"
+                      >
+                        Open menu
+                      </span>
+                      <svg
+                        class="lucide lucide-ellipsis h-4 w-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="1"
+                        />
+                        <circle
+                          cx="19"
+                          cy="12"
+                          r="1"
+                        />
+                        <circle
+                          cx="5"
+                          cy="12"
+                          r="1"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                  data-state="false"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <button
+                      aria-checked="false"
+                      aria-label="Select row 1"
+                      class="peer h-4 w-4 shrink-0 rounded-sm border border-slate-900 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-slate-900 data-[state=checked]:text-slate-50 dark:border-slate-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=checked]:bg-slate-50 dark:data-[state=checked]:text-slate-900"
+                      data-state="unchecked"
+                      id="select-row-1"
+                      role="checkbox"
+                      type="button"
+                      value="on"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      Group 2
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      USD
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      2021-01-02
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="lowercase"
+                    >
+                      2021-01-02
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      2
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="menu"
+                      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-8 w-8 p-0"
+                      data-state="closed"
+                      id="radix-:r4:"
+                      type="button"
+                    >
+                      <span
+                        class="sr-only"
+                      >
+                        Open menu
+                      </span>
+                      <svg
+                        class="lucide lucide-ellipsis h-4 w-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="1"
+                        />
+                        <circle
+                          cx="19"
+                          cy="12"
+                          r="1"
+                        />
+                        <circle
+                          cx="5"
+                          cy="12"
+                          r="1"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+                <tr
+                  class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                  data-state="false"
+                >
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <button
+                      aria-checked="false"
+                      aria-label="Select row 2"
+                      class="peer h-4 w-4 shrink-0 rounded-sm border border-slate-900 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-slate-900 data-[state=checked]:text-slate-50 dark:border-slate-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=checked]:bg-slate-50 dark:data-[state=checked]:text-slate-900"
+                      data-state="unchecked"
+                      id="select-row-2"
+                      role="checkbox"
+                      type="button"
+                      value="on"
+                    />
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      Group 3
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      EUR
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      2021-01-03
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="lowercase"
+                    >
+                      2021-01-03
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <div
+                      class="capitalize"
+                    >
+                      3
+                    </div>
+                  </td>
+                  <td
+                    class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="menu"
+                      class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-8 w-8 p-0"
+                      data-state="closed"
+                      id="radix-:r6:"
+                      type="button"
+                    >
+                      <span
+                        class="sr-only"
+                      >
+                        Open menu
+                      </span>
+                      <svg
+                        class="lucide lucide-ellipsis h-4 w-4"
+                        fill="none"
+                        height="24"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="1"
+                        />
+                        <circle
+                          cx="19"
+                          cy="12"
+                          r="1"
+                        />
+                        <circle
+                          cx="5"
+                          cy="12"
+                          r="1"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div
+          class="flex items-center justify-end space-x-2 py-4"
+        >
+          <div
+            class="flex-1 text-sm text-muted-foreground"
+          >
+            0
+             of
+             
+            3
+             row(s) selected.
+          </div>
+          <div
+            class="space-x-2"
+          >
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-9 rounded-md px-3"
+              disabled=""
+            >
+              Previous
+            </button>
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-9 rounded-md px-3"
+              disabled=""
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="w-full"
+    >
+      <div
+        class="flex items-center py-4"
+      >
+        <input
+          class="flex h-10 w-full rounded-md border border-slate-200 bg-white px-3 py-2 text-sm ring-offset-white file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-800 dark:bg-slate-950 dark:ring-offset-slate-950 dark:placeholder:text-slate-400 dark:focus-visible:ring-slate-300 max-w-sm"
+          id="filter-group-name"
+          name="filter-group-name"
+          placeholder="Filter group names..."
+          value=""
+        />
+        <button
+          aria-expanded="false"
+          aria-haspopup="menu"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-10 px-4 py-2 ml-auto"
+          data-state="closed"
+          id="radix-:r0:"
+          type="button"
+        >
+          Columns 
+          <svg
+            class="lucide lucide-chevron-down ml-2 h-4 w-4"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m6 9 6 6 6-6"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="rounded-md border"
+      >
+        <div
+          class="relative w-full overflow-auto"
+        >
+          <table
+            class="w-full caption-bottom text-sm"
+          >
+            <thead
+              class="[&_tr]:border-b"
+            >
+              <tr
+                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+              >
+                <th
+                  class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                >
+                  <button
+                    aria-checked="false"
+                    aria-label="Select all"
+                    class="peer h-4 w-4 shrink-0 rounded-sm border border-slate-900 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-slate-900 data-[state=checked]:text-slate-50 dark:border-slate-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=checked]:bg-slate-50 dark:data-[state=checked]:text-slate-900"
+                    data-state="unchecked"
+                    id="select-all"
+                    role="checkbox"
+                    type="button"
+                    value="on"
+                  />
+                </th>
+                <th
+                  class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                >
+                  Name
+                </th>
+                <th
+                  class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                >
+                  Currency
+                </th>
+                <th
+                  class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                >
+                  CreatedAt
+                </th>
+                <th
+                  class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                >
+                  <button
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-10 px-4 py-2"
+                  >
+                    UpdatedAt
+                    <svg
+                      class="lucide lucide-arrow-up-down ml-2 h-4 w-4"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="m21 16-4 4-4-4"
+                      />
+                      <path
+                        d="M17 20V4"
+                      />
+                      <path
+                        d="m3 8 4-4 4 4"
+                      />
+                      <path
+                        d="M7 4v16"
+                      />
+                    </svg>
+                  </button>
+                </th>
+                <th
+                  class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                >
+                  ID
+                </th>
+                <th
+                  class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+                />
+              </tr>
+            </thead>
+            <tbody
+              class="[&_tr:last-child]:border-0"
+            >
+              <tr
+                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                data-state="false"
+              >
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <button
+                    aria-checked="false"
+                    aria-label="Select row 0"
+                    class="peer h-4 w-4 shrink-0 rounded-sm border border-slate-900 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-slate-900 data-[state=checked]:text-slate-50 dark:border-slate-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=checked]:bg-slate-50 dark:data-[state=checked]:text-slate-900"
+                    data-state="unchecked"
+                    id="select-row-0"
+                    role="checkbox"
+                    type="button"
+                    value="on"
+                  />
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    Group 1
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    CZK
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    2021-01-01
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="lowercase"
+                  >
+                    2021-01-01
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    1
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="menu"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-8 w-8 p-0"
+                    data-state="closed"
+                    id="radix-:r2:"
+                    type="button"
+                  >
+                    <span
+                      class="sr-only"
+                    >
+                      Open menu
+                    </span>
+                    <svg
+                      class="lucide lucide-ellipsis h-4 w-4"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="1"
+                      />
+                      <circle
+                        cx="19"
+                        cy="12"
+                        r="1"
+                      />
+                      <circle
+                        cx="5"
+                        cy="12"
+                        r="1"
+                      />
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                data-state="false"
+              >
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <button
+                    aria-checked="false"
+                    aria-label="Select row 1"
+                    class="peer h-4 w-4 shrink-0 rounded-sm border border-slate-900 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-slate-900 data-[state=checked]:text-slate-50 dark:border-slate-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=checked]:bg-slate-50 dark:data-[state=checked]:text-slate-900"
+                    data-state="unchecked"
+                    id="select-row-1"
+                    role="checkbox"
+                    type="button"
+                    value="on"
+                  />
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    Group 2
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    USD
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    2021-01-02
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="lowercase"
+                  >
+                    2021-01-02
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    2
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="menu"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-8 w-8 p-0"
+                    data-state="closed"
+                    id="radix-:r4:"
+                    type="button"
+                  >
+                    <span
+                      class="sr-only"
+                    >
+                      Open menu
+                    </span>
+                    <svg
+                      class="lucide lucide-ellipsis h-4 w-4"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="1"
+                      />
+                      <circle
+                        cx="19"
+                        cy="12"
+                        r="1"
+                      />
+                      <circle
+                        cx="5"
+                        cy="12"
+                        r="1"
+                      />
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+              <tr
+                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+                data-state="false"
+              >
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <button
+                    aria-checked="false"
+                    aria-label="Select row 2"
+                    class="peer h-4 w-4 shrink-0 rounded-sm border border-slate-900 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-slate-900 data-[state=checked]:text-slate-50 dark:border-slate-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 dark:data-[state=checked]:bg-slate-50 dark:data-[state=checked]:text-slate-900"
+                    data-state="unchecked"
+                    id="select-row-2"
+                    role="checkbox"
+                    type="button"
+                    value="on"
+                  />
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    Group 3
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    EUR
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    2021-01-03
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="lowercase"
+                  >
+                    2021-01-03
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <div
+                    class="capitalize"
+                  >
+                    3
+                  </div>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >
+                  <button
+                    aria-expanded="false"
+                    aria-haspopup="menu"
+                    class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-8 w-8 p-0"
+                    data-state="closed"
+                    id="radix-:r6:"
+                    type="button"
+                  >
+                    <span
+                      class="sr-only"
+                    >
+                      Open menu
+                    </span>
+                    <svg
+                      class="lucide lucide-ellipsis h-4 w-4"
+                      fill="none"
+                      height="24"
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        r="1"
+                      />
+                      <circle
+                        cx="19"
+                        cy="12"
+                        r="1"
+                      />
+                      <circle
+                        cx="5"
+                        cy="12"
+                        r="1"
+                      />
+                    </svg>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div
+        class="flex items-center justify-end space-x-2 py-4"
+      >
+        <div
+          class="flex-1 text-sm text-muted-foreground"
+        >
+          0
+           of
+           
+          3
+           row(s) selected.
+        </div>
+        <div
+          class="space-x-2"
+        >
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-9 rounded-md px-3"
+            disabled=""
+          >
+            Previous
+          </button>
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-slate-950 dark:focus-visible:ring-slate-300 border border-slate-200 bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 h-9 rounded-md px-3"
+            disabled=""
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

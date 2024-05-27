@@ -25,6 +25,7 @@ export default function GroupsRadio() {
             // checked={viewType === "list"}
             value="list"
             id="list"
+            data-testid="list"
           />
           <Label htmlFor="list">List</Label>
         </div>
@@ -33,6 +34,7 @@ export default function GroupsRadio() {
             // checked={viewType === "grid"}
             value="grid"
             id="grid"
+            data-testid="grid"
           />
           <Label htmlFor="grid">Grid</Label>
         </div>
@@ -41,6 +43,7 @@ export default function GroupsRadio() {
             // checked={viewType === "table"}
             value="table"
             id="table"
+            data-testid="table"
           />
           <Label htmlFor="table">Data Table</Label>
         </div>

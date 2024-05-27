@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@everapi/freecurrencyapi-js": "^1.0.1",
@@ -58,7 +60,10 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@vitejs/plugin-react": "^4.2.1",
+    "@vitest/coverage-istanbul": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0",
     "@vitest/ui": "^1.6.0",
+    "cypress": "^13.10.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "jsdom": "^24.0.0",

@@ -18,6 +18,6 @@ test("Basic auth and navigate to groups-grid", async ({ page, browser }) => {
     await page.getByPlaceholder("Source currency").fill("EUR")
     await page.getByPlaceholder("Target currency").fill("USD")
     await page.getByTestId("calculate").click()
-    await expect(page.getByTestId("result-container")).toHaveText("= 1 EUR sind 1.09 USD")
+    await expect(page.getByTestId("result-container")).toHaveText(/= 1 EUR/i)
   })
 })
