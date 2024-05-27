@@ -9,14 +9,16 @@ const dbUrl = env.SPLIT_API_URL;
 
 interface PageProps {
   params: { lang: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: {
+    view: "list" | "grid" | "table";
+  };
 }
 
 export default async function Page({ params, searchParams }: PageProps) {
   const dict = await getDictionary(params.lang); // en
   const response = await fetch(`${dbUrl}/groups`, { cache: "no-store" });
-  let groups = await response.json();
-  let view = searchParams.view;
+  const groups = await response.json();
+  const view = searchParams.view;
 
   return (
     <>

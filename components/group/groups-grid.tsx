@@ -35,7 +35,9 @@ export default function GroupsGrid({ groups }: { groups: Group[] }) {
             <CardTitle>Create new group</CardTitle>
           </CardHeader>
           <CardFooter>
-            <Button>Create</Button>
+            <Button>
+              <Link href={"create-group"}>Create</Link>
+            </Button>
           </CardFooter>
         </Card>
       ) : (

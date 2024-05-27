@@ -3,7 +3,7 @@
     "name": "Name",
     "id": "ID",
     "createdAt": "Erstellt am",
-    "cpdatedAt": "Aktualisiert am",
+    "updatedAt": "Aktualisiert am",
     "currency": "Währung",
     "description": "Eine Liste von allen Gruppen."
   }

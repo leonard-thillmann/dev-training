@@ -40,8 +40,8 @@ export async function middleware(request: NextRequest) {
   // ########### LOCALIZATION MIDDLEWARE ###########
   // Dont redirect if path already has locale or is for authentication
   if (!pathnameHasLocale && !isAuthPath) {
-    // request.nextUrl.pathname = `/${locale}${pathname}`;
-    // return NextResponse.redirect(request.nextUrl);
+    request.nextUrl.pathname = `/${locale}${pathname}`;
+    return NextResponse.redirect(request.nextUrl);
   }
 
   return NextResponse.next();
