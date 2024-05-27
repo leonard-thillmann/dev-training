@@ -7,7 +7,7 @@ test('test', async ({ page }) => {
   await page.waitForURL("http://localhost:3000/en")
   await page.getByTestId("create").click()
   await page.getByTestId("group").click()
-  await page.getByPlaceholder('name').fill('Test123');
+  await page.getByPlaceholder('name').fill('e2e Playwright Test Group');
   await page.getByPlaceholder('currency').fill('EUR');
   await page.getByRole('button', { name: 'Create group' }).click();
   await expect(page).toHaveURL('http://localhost:3000/en')
