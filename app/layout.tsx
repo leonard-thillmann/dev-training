@@ -18,6 +18,9 @@ type RootLayoutProps = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html>
+      <head>
+        <link rel="icon" href="./favicon.ico" sizes="any" />
+      </head>
       <body className={`${bitter.className} m-4`}>
         <Menu />
         {children}

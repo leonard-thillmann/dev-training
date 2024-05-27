@@ -45,7 +45,6 @@ export default function GroupForm() {
       toast({
         title: "Success",
         description: "Group successfully created!",
-        status: "success",
       });
       setTimeout(() => {
         window.location.href = "./";
@@ -54,7 +53,6 @@ export default function GroupForm() {
       toast({
         title: "Error",
         description: "Failed to create group.",
-        status: "error",
       });
       console.error("Failed to post group:", error);
     }
