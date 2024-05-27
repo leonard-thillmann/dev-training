@@ -9,6 +9,8 @@ let locales = ["en", "de"];
 let defaultLocale = "en";
 
 export async function middleware(request: NextRequest) {
+  
+  const session = await auth();
   const { pathname } = request.nextUrl;
   const locale = match(languages, locales, defaultLocale);
   const pathnameHasLocale = locales.some(
@@ -16,24 +18,30 @@ export async function middleware(request: NextRequest) {
   );
   
   // ########### AUTHENTICATION MIDDLEWARE ###########
-  // Check if the path is related to authentication and should be excluded
+  // Check if the path is related to authentication and should be excluded from auth protection
   const isAuthPath =
     pathname.startsWith(`/${locale}/sign-in`) ||
     pathname.startsWith(`/${locale}/api/auth/callback/github`);
 
   // Only run authentication check if it's not an auth-related path
   if (!isAuthPath) {
-    const session = await auth();
     if (!session?.user) {
       return NextResponse.redirect(new URL(`/${locale}/sign-in`, request.url));
+    } 
+  }
+
+  // Redirect logged in user after sign-in
+  if(session?.user){
+    if(pathname === `/${locale}/sign-in`){
+      return NextResponse.redirect(new URL(`/${locale}?view=list`, request.url));
     }
   }
 
   // ########### LOCALIZATION MIDDLEWARE ###########
-  // Localization middleware
+  // Dont redirect if path already has locale or is for authentication
   if (!pathnameHasLocale && !isAuthPath) {
-    request.nextUrl.pathname = `/${locale}${pathname}`;
-    return NextResponse.redirect(request.nextUrl);
+    // request.nextUrl.pathname = `/${locale}${pathname}`;
+    // return NextResponse.redirect(request.nextUrl);
   }
 
   return NextResponse.next();

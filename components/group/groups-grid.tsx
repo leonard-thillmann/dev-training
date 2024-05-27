@@ -1,6 +1,5 @@
 "use client";
 
-import getGroups from "@/actions/get-groups";
 import { Button } from "@/components/common/button";
 import {
   Card,
@@ -11,7 +10,6 @@ import {
 import GroupCard from "@/components/group/groups-card";
 import type { Metadata } from "next";
 import Link from "next/link";
-import React, { useEffect } from "react";
 
 export const metadata: Metadata = {
   title: "Home - Grid",
@@ -28,18 +26,7 @@ type Group = {
 
 let groups: Group[] = [];
 
-async function fetchData() {
-  groups = await getGroups();
-}
-
-export default function GroupsGrid() {
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  useEffect(() => {
-    fetchData();
-    setIsLoading(false);
-  }, []);
-
+export default function GroupsGrid({ groups }: { groups: Group[] }) {
   return (
     <>
       {groups.length === 0 ? (

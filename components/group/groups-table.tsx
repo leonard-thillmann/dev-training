@@ -1,123 +1,300 @@
 "use client";
 
-import { Label } from "@/components/common/label";
-import { RadioGroup, RadioGroupItem } from "@/components/common/radio-group";
+import {
+  ColumnDef,
+  ColumnFiltersState,
+  RowData,
+  SortingState,
+  TableOptions,
+  VisibilityState,
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
+import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
+import * as React from "react";
+
+import { Button } from "@/components/common/button";
+import { Checkbox } from "@/components/common/checkbox";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger,
+} from "@/components/common/dropdown-menu";
+import { Input } from "@/components/common/input";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/common/table";
-import Text from "@/components/common/text";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import GroupsDataTable from "./groups-data-table";
-import GroupsGrid from "./groups-grid";
 
-type Group = {
+export type Group = {
   id: string;
   name: string;
-  currency: string;
-  createdAt: string;
-  updatedAt: string;
-};
-
-type dict = {
-  name: string;
-  id: string;
   createdAt: string;
   updatedAt: string;
   currency: string;
-  description: string;
 };
 
-type GroupTableProps = {
-  groups: Group[];
-  dict: dict; // Include the lang prop
-};
+export const groups: ColumnDef<Group>[] = [
+  {
+    id: "select",
+    header: ({ table }) => (
+      <Checkbox
+        name="select-all"
+        id="select-all"
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="Select all"
+      />
+    ),
+    cell: ({ row }) => (
+      <Checkbox
+        name={`select-row-${row.id}`}
+        id={`select-row-${row.id}`}
+        checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label={`Select row ${row.id}`}
+      />
+    ),
+    enableSorting: false,
+    enableHiding: false,
+  },
+  {
+    accessorKey: "name",
+    header: "Name",
+    cell: ({ row }) => <div className="capitalize">{row.getValue("name")}</div>,
+  },
+  {
+    accessorKey: "currency",
+    header: "Currency",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("currency")}</div>
+    ),
+  },
+  {
+    accessorKey: "createdAt",
+    header: "CreatedAt",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("createdAt")}</div>
+    ),
+  },
 
-export default function Groups({ groups, dict }: GroupTableProps) {
-  const [view, setView] = useState("");
-  const searchParams = useSearchParams();
-  const search = searchParams.get("view");
+  {
+    accessorKey: "updatedAt",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          UpdatedAt
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+    cell: ({ row }) => (
+      <div className="lowercase">{row.getValue("updatedAt")}</div>
+    ),
+  },
+  {
+    accessorKey: "id",
+    header: "ID",
+    cell: ({ row }) => <div className="capitalize">{row.getValue("id")}</div>,
+  },
+  {
+    id: "actions",
+    enableHiding: false,
+    cell: ({ row }) => {
+      const group = row.original;
 
-  useEffect(() => {
-    if (view !== "") {
-      window.location.href = "?view=" + view;
-    }
-  });
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="h-8 w-8 p-0">
+              <span className="sr-only">Open menu</span>
+              <MoreHorizontal className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuItem
+              onClick={() => navigator.clipboard.writeText(group.id)}
+            >
+              Copy ID
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      );
+    },
+  },
+];
+
+// Defining the extended interface above the table component
+interface ExtendedTableOptions<TData extends RowData>
+  extends TableOptions<TData> {
+  columns: ColumnDef<TData>[];
+}
+
+const columns: ColumnDef<Group>[] = groups;
+
+export default function GroupsDataTable({ data }: { data: Group[] }) {
+  const [sorting, setSorting] = React.useState<SortingState>([]);
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  );
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({});
+  const [rowSelection, setRowSelection] = React.useState({});
+
+  // Usage of useReactTable with type assertion
+  const table = useReactTable<Group>({
+    data,
+    columns: groups as ColumnDef<Group>[], // Ensure 'groups' is treated as an array of ColumnDef<Group>
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
+    getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    onColumnVisibilityChange: setColumnVisibility,
+    onRowSelectionChange: setRowSelection,
+    state: {
+      sorting,
+      columnFilters,
+      columnVisibility,
+      rowSelection,
+    },
+  } as ExtendedTableOptions<Group>); // Explicitly assert the entire options object as ExtendedTableOptions<Group>
 
   return (
     <>
-      <div className="p-2">
-        <RadioGroup defaultValue="option-one">
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem
-              onClick={() => setView("list")}
-              checked={search === "list"}
-              value="option-one"
-              id="option-one"
-            />
-            <Label htmlFor="option-one">List</Label>
+      <div className="w-full">
+        <div className="flex items-center py-4">
+          <Input
+            id="filter-group-name"
+            name="filter-group-name"
+            placeholder="Filter group names..."
+            value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+            onChange={(event) =>
+              table.getColumn("name")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="ml-auto">
+                Columns <ChevronDown className="ml-2 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {table
+                .getAllColumns()
+                .filter((group) => group.getCanHide())
+                .map((group) => {
+                  return (
+                    <DropdownMenuCheckboxItem
+                      key={group.id}
+                      className="capitalize"
+                      checked={group.getIsVisible()}
+                      onCheckedChange={(value) =>
+                        group.toggleVisibility(!!value)
+                      }
+                    >
+                      {group.id}
+                    </DropdownMenuCheckboxItem>
+                  );
+                })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+        <div className="rounded-md border">
+          <Table>
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => {
+                    return (
+                      <TableHead key={header.id}>
+                        {header.isPlaceholder
+                          ? null
+                          : flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                      </TableHead>
+                    );
+                  })}
+                </TableRow>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={groups.length}
+                    className="h-24 text-center"
+                  >
+                    No results.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
+        <div className="flex items-center justify-end space-x-2 py-4">
+          <div className="flex-1 text-sm text-muted-foreground">
+            {table.getFilteredSelectedRowModel().rows.length} of{" "}
+            {table.getFilteredRowModel().rows.length} row(s) selected.
           </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem
-              onClick={() => setView("grid")}
-              checked={search === "grid"}
-              value="option-two"
-              id="option-two"
-            />
-            <Label htmlFor="option-two">Grid</Label>
+          <div className="space-x-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+            >
+              Previous
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+            >
+              Next
+            </Button>
           </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem
-              onClick={() => setView("data-table")}
-              checked={search === "data-table"}
-              value="option-three"
-              id="option-three"
-            />
-            <Label htmlFor="option-three">Data Table</Label>
-          </div>
-        </RadioGroup>
+        </div>
       </div>
-
-      {search === "list" ? (
-        <Table className="w-11/12">
-          <TableCaption>
-            <Text>{dict.description}</Text>
-          </TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead>{dict.name}</TableHead>
-              <TableHead>{dict.id}</TableHead>
-              <TableHead>{dict.createdAt}</TableHead>
-              <TableHead>{dict.updatedAt}</TableHead>
-              <TableHead className="text-right">{dict.currency}</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {groups.map((group: Group) => (
-              <TableRow
-                key={group.id}
-                onClick={() => (window.location.href = `./groups/${group.id}`)}
-              >
-                <TableCell>{group.name}</TableCell>
-                <TableCell>{group.id}</TableCell>
-                <TableCell>{group.createdAt}</TableCell>
-                <TableCell>{group.updatedAt}</TableCell>
-                <TableCell className="text-right">{group.currency}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      ) : search === "grid" ? (
-        <GroupsGrid />
-      ) : search === "data-table" ? (
-        <GroupsDataTable />
-      ) : null}
     </>
   );
 }
