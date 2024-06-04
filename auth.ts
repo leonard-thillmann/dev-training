@@ -19,11 +19,11 @@ if (process.env.NODE_ENV === "development") {
       id: "password",
       name: "Password",
       credentials: {
-        password: { label: "Password", type: "password" },
+        pass: { label: "Password", type: "password" },
       },
       // @ts-ignore
       authorize: (credentials) => {
-        if (credentials.password === "password") {
+        if (credentials.pass === "password") {
           return {
             email: "bob@alice.com",
             name: "Bob Alice",
